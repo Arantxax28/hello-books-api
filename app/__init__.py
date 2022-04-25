@@ -4,3 +4,11 @@ def create_app(test_config=None):
     app = Flask(__name__)
 
     return app
+
+def create_app():
+    app = Flask(__name__)
+
+    from .routes import books_bp
+    app.register_blueprint(books_bp)
+
+    return app
